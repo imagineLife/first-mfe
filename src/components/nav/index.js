@@ -20,7 +20,7 @@ import Typography from '@mui/material/Typography';
 const LocalDrawer = React.lazy(() => import('./../localDrawer'));
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Start', 'Enable MF'];
 
 
 export default function Nav({window}) {
