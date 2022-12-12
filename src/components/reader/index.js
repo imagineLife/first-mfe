@@ -1,26 +1,28 @@
 import React, { Fragment } from 'react';
-import Typography from '@mui/material/Typography';
+
+import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
-function Section({ sx, h1, h2, h3, h4, h5, h6, children }) { 
+function Section({ sx, h1, h2, h3, h4, h5, h6, children }) {
   return (
-    <Fragment>
-      {h1 && <Typography variant="h1" sx={{...sx}}>{h1}</Typography>}
-      {h2 && <Typography variant="h2" sx={{...sx}}>{h2}</Typography>}
-      {h3 && <Typography variant="h3" sx={{...sx}}>{h3}</Typography>}
-      {h4 && <Typography variant="h4" sx={{...sx}}>{h4}</Typography>}
-      {h5 && <Typography variant="h5" sx={{...sx}}>{h5}</Typography>}
-      {h6 && <Typography variant="h6" sx={{...sx}}>{h6}</Typography>}
+    <Box sx={{...sx}}>
+      {h1 && <Typography variant="h1">{h1}</Typography>}
+      {h2 && <Typography variant="h2">{h2}</Typography>}
+      {h3 && <Typography variant="h3">{h3}</Typography>}
+      {h4 && <Typography variant="h4">{h4}</Typography>}
+      {h5 && <Typography variant="h5">{h5}</Typography>}
+      {h6 && <Typography variant="h6">{h6}</Typography>}
       {children}
-    </Fragment>
+    </Box>
   );
 }
 
 function GettingStarted() {
   return (
-    <Section h2="Initial Setup">
+    <Section h2="Initial Setup" sx={{ p: 2 }}>
       <Section h3="Dependencies" sx={{ p: 3 }}>
         <Typography variant="body1">
           The app is setup without the modulke federation, a "vanilla" bare-bones react-based
