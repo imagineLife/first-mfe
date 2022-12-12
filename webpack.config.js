@@ -19,7 +19,14 @@ const deps = require('./package.json').dependencies;
   - list of modules that are set to "eagerly load", to enable quick additions
   - loop through each, build an obj that gets used in the ModuleFederationPlugin
 */ 
-const eagerDeps = ['react', 'react-dom', '@emotion/styled', '@emotion/react']
+const eagerDeps = [
+  'react',
+  'react-dom',
+  '@emotion/styled',
+  '@emotion/react',
+  '@mui/icons-material',
+  '@mui/material',
+];
 const eagerDepsObj = {}
 eagerDeps.forEach(d => { 
   eagerDepsObj[`${d}`] = {
