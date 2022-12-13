@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 
 export default function EnableModFed() {
   return (
-    <Section h2="Initial Setup">
+    <Section h2="Initial Setup" sx={{ p: 6 }}>
       <Section h3="Updating The Host App" sx={{ p: 3 }}>
         <Typography variant="body1">
           Enabling Module Federation involves adjusting the "host" app to work with module
