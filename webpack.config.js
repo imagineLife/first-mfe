@@ -64,20 +64,39 @@ module.exports = {
       template: HTML_TEMPLATE_FILE,
       filename: './index.html',
     }),
-    new ModFedPlugin({
-      name: THIS_FED_MOD.NAME,
-      filename: THIS_FED_MOD.FILENAME,
-      remotes: {},
-      exposes: {},
-      shared: {
-        ...deps,
-        ...eagerDepsObj,
-      },
-    }),
+    // new ModFedPlugin({
+    //   name: THIS_FED_MOD.NAME,
+    //   filename: THIS_FED_MOD.FILENAME,
+    //   remotes: {},
+    //   exposes: {},
+    //   shared: {
+    //     ...deps,
+    //     ...eagerDepsObj,
+    //   },
+    // }),
   ],
   optimization: {
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
     splitChunks: {
-      chunks: 'all',
+      // ALL node mods in one chunk
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+
+      // JUST react+react-dom in a unique chunk
+      // cacheGroups: {
+      //   vendor: {
+      //     test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+      //     name: 'react-deps',
+      //     chunks: 'all',
+      //   },
+      // },
     },
   },
 };
