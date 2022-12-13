@@ -12,7 +12,7 @@ export default function EnableModFed() {
         </a>{' '}
         involves adjusting the "host" app to work with module federation. Thist mostly involves
         tinkering with Webpack config, as module federation affects how parts of an app like this
-        are built, bundled, and deployed.
+        are built, bundled, and deployed. <i>(NOTE: the docs are referenced throughout this doc)</i>
       </Typography>
       <Typography variant="body1">
         <b>The "Host" App</b> gets introduced, where the app becomes able to "consume" code produced
@@ -32,8 +32,8 @@ export default function EnableModFed() {
         The webpack config plugins array can get something like this added to it:
       </Typography>
       <code style={{ whiteSpace: 'pre' }}>{` new ModFedPlugin({
-  name: THIS_FED_MOD.NAME,
-  filename: THIS_FED_MOD.FILENAME,
+  name: 'the-host-app',
+  filename: 'remoteEntry.js',
   remotes: {},
   exposes: {},
   shared: {
@@ -41,6 +41,32 @@ export default function EnableModFed() {
     ...eagerDepsObj,
   },
 }),`}</code>
+      <Typography>
+        <b>name</b> is a friendly name for this host module.
+      </Typography>
+      <Typography>
+        <b>filename</b> is the filename for this module's{' '}
+        <i>(now as a "host" app or "container" app)</i> relative path inside the `output.path`
+        directory
+      </Typography>
+      <Typography>
+        <b>remotes</b> are objects of other modules that this module consumes. Right now there are
+        no entries there, but this will get populated once a part of this app gets broken out into a
+        separate micro-frontend Federated Module.
+      </Typography>
+      <Typography>
+        <b>exposes</b> is an obj of modules that should be exposed by this module. When this has
+        content, each key is used as public name.{' '}
+        <i>(otherwise public name is automatically inferred from request)</i>
+      </Typography>
+      <Typography>
+        <b>shared</b> is used here to describe which node_modules are "shared". This is added
+        primarily due to a{' '}
+        <a href="https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption" target="none">
+          Known Error-Driven-Development Documentation note
+        </a> by the webpack team, where eager module loading matters.
+      </Typography>
+
       <Typography variant="body2">
         <a href="https://scriptedalchemy.medium.com/" target="none">
           Zachary Jackson
