@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 export default function GettingStarted() {
   return (
-    <Section h2="Initial Setup">
+    <Section h2="Initial Setup" sx={{ p: 6 }}>
       <Section h3="Dependencies" sx={{ p: 3 }}>
         <Typography variant="body1">
           The app is setup without the modulke federation, a "vanilla" bare-bones react-based
