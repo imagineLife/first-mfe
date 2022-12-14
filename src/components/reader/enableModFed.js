@@ -67,7 +67,7 @@ export default function EnableModFed() {
         </a> by the webpack team, where eager module loading matters.
       </Typography>
 
-      <Section h4="Host App Impact On Production Bundle" sx={{ p: 4 }}>
+      <Section h4="Config Impact On Production Bundle" sx={{ p: 4 }}>
         <Typography variant="body1">
           Horse dog
         </Typography>
