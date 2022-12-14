@@ -83,13 +83,13 @@ export default function EnableModFed() {
           <ListItem>
             <ListItemText
               primary="A Larger Index File"
-              secondary="Right now, the index.js file is bigger - beyond the alert of webpack & after running 'npm run build' an error shows in the terminal: WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance. Entrypoints: index (662 KiB)"
+              secondary={`Right now, the index.js file gets bigger - big enough to trigger the alert of webpack during the build process - after running 'npm run build' an error shows in the terminal: WARNING in entrypoint size limit: "The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance. Entrypoints: index (662 KiB)"`}
             />
           </ListItem>
           <ListItem>
             <ListItemText
-              primary=""
-              secondary=""
+              primary="Setup to Consume Other MFE code"
+              secondary={`The "remotes: {}," in the ModuleFederationPlugin config object is the key to making this repo able to consume js from a different project!`}
             />
           </ListItem>
         </List>
