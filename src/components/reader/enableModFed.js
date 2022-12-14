@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import Section from './section';
+
 import { Typography } from '@mui/material';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 export default function EnableModFed() {
   return (
@@ -62,15 +66,33 @@ export default function EnableModFed() {
       <Typography>
         <b>shared</b> is used here to describe which node_modules are "shared". This is added
         primarily due to a{' '}
-        <a href="https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption" target="none">
+        <a
+          href="https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption"
+          target="none"
+        >
           Known Error-Driven-Development Documentation note
-        </a> by the webpack team, where eager module loading matters.
+        </a>{' '}
+        by the webpack team, where eager module loading matters.
       </Typography>
 
       <Section h4="Config Impact On Production Bundle" sx={{ p: 4 }}>
         <Typography variant="body1">
-          Horse dog
+          A Few things happen when adding the module federation plugin:
         </Typography>
+        <List>
+          <ListItem>
+            <ListItemText
+              primary="A Larger Index File"
+              secondary="Right now, the index.js file is bigger - beyond the alert of webpack & after running 'npm run build' an error shows in the terminal: WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance. Entrypoints: index (662 KiB)"
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText
+              primary=""
+              secondary=""
+            />
+          </ListItem>
+        </List>
       </Section>
       <Typography variant="body2">
         <a href="https://scriptedalchemy.medium.com/" target="none">
@@ -112,13 +134,4 @@ export default function EnableModFed() {
       </Typography>
     </Section>
   );
-}
-
-{
-  /* <Section h3="Updating The Module" sx={{ p: 3 }}>
-  <Typography variant="body1">
-    In this example, the nav gets broken up into a federated module. Perhaps nav has become super
-    complex and there is enough work and value to put some unique individuals on a new "nav" team.
-  </Typography>
-</Section>; */
 }
