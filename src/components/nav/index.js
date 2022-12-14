@@ -20,7 +20,7 @@ import Typography from '@mui/material/Typography';
 const LocalDrawer = React.lazy(() => import('./../localDrawer'));
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Start', 'Enable MF'];
 
 
 export default function Nav({window}) {
@@ -49,7 +49,7 @@ export default function Nav({window}) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Mod-Fed App
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (

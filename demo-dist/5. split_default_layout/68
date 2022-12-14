@@ -1,0 +1,165 @@
+"use strict";
+(self["webpackChunkfirst_mfe"] = self["webpackChunkfirst_mfe"] || []).push([[68],{
+
+/***/ 2068:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ DefaultLayout)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Box/Box.js + 1 modules
+var Box = __webpack_require__(8720);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Toolbar/Toolbar.js + 1 modules
+var Toolbar = __webpack_require__(4384);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/AppBar/AppBar.js + 1 modules
+var AppBar = __webpack_require__(3421);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Button/Button.js + 2 modules
+var Button = __webpack_require__(5305);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Drawer/Drawer.js + 23 modules
+var Drawer = __webpack_require__(210);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/IconButton/IconButton.js + 1 modules
+var IconButton = __webpack_require__(130);
+// EXTERNAL MODULE: ./node_modules/@mui/icons-material/Menu.js
+var Menu = __webpack_require__(326);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Typography/Typography.js + 1 modules
+var Typography = __webpack_require__(1647);
+;// CONCATENATED MODULE: ./src/components/nav/index.js
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/*
+  - Nav Bar
+  - Sidebar drawer
+*/
+
+
+// @mui components
+
+
+
+
+
+
+
+
+
+
+
+
+var LocalDrawer = /*#__PURE__*/react.lazy(function () {
+  return Promise.all(/* import() */[__webpack_require__.e(537), __webpack_require__.e(499)]).then(__webpack_require__.bind(__webpack_require__, 499));
+});
+var drawerWidth = 240;
+var navItems = ['Start', 'Enable MF'];
+function Nav(_ref) {
+  var window = _ref.window;
+  var _useState = (0,react.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    mobileOpen = _useState2[0],
+    setMobileOpen = _useState2[1];
+  var handleDrawerToggle = function handleDrawerToggle() {
+    setMobileOpen(!mobileOpen);
+  };
+  var container = window !== undefined ? function () {
+    return window().document.body;
+  } : undefined;
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(AppBar/* default */.Z, {
+    component: "nav"
+  }, /*#__PURE__*/react.createElement(Toolbar/* default */.Z, null, /*#__PURE__*/react.createElement(IconButton/* default */.Z, {
+    color: "inherit",
+    "aria-label": "open drawer",
+    edge: "start",
+    onClick: handleDrawerToggle,
+    sx: {
+      mr: 2,
+      display: {
+        sm: 'none'
+      }
+    }
+  }, /*#__PURE__*/react.createElement(Menu/* default */.Z, null)), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h6",
+    component: "div",
+    sx: {
+      flexGrow: 1,
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, "Mod-Fed App"), /*#__PURE__*/react.createElement(Box/* default */.Z, {
+    sx: {
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, navItems.map(function (item) {
+    return /*#__PURE__*/react.createElement(Button/* default */.Z, {
+      key: item,
+      sx: {
+        color: '#fff'
+      }
+    }, item);
+  })))), /*#__PURE__*/react.createElement(Box/* default */.Z, {
+    component: "nav"
+  }, /*#__PURE__*/react.createElement(Drawer/* default */.ZP, {
+    container: container,
+    variant: "temporary",
+    open: mobileOpen,
+    onClose: handleDrawerToggle,
+    ModalProps: {
+      keepMounted: true // Better open performance on mobile.
+    },
+
+    sx: {
+      display: {
+        xs: 'block',
+        sm: 'none'
+      },
+      '& .MuiDrawer-paper': {
+        boxSizing: 'border-box',
+        width: drawerWidth
+      }
+    }
+  }, mobileOpen && /*#__PURE__*/react.createElement(react.Suspense, {
+    fallback: /*#__PURE__*/react.createElement("span", null)
+  }, /*#__PURE__*/react.createElement(LocalDrawer, {
+    onClick: handleDrawerToggle,
+    navItems: navItems
+  })))));
+}
+;// CONCATENATED MODULE: ./src/layouts/default/index.js
+
+
+
+
+function DefaultLayout(_ref) {
+  var window = _ref.window,
+    children = _ref.children;
+  return /*#__PURE__*/react.createElement(Box/* default */.Z, {
+    sx: {
+      display: 'flex'
+    }
+  }, /*#__PURE__*/react.createElement(Nav, {
+    window: window
+  }), /*#__PURE__*/react.createElement(Box/* default */.Z, {
+    component: "main",
+    sx: {
+      p: 3
+    }
+  }, /*#__PURE__*/react.createElement(Toolbar/* default */.Z, null), children));
+}
+
+/***/ })
+
+}]);

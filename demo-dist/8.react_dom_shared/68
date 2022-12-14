@@ -1,0 +1,218 @@
+(self["webpackChunkfirst_mfe"] = self["webpackChunkfirst_mfe"] || []).push([[68],{
+
+/***/ 326:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+var __webpack_unused_export__;
+
+
+var _interopRequireDefault = __webpack_require__(4836);
+__webpack_unused_export__ = ({
+  value: true
+});
+exports.Z = void 0;
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(4938));
+var _jsxRuntime = __webpack_require__(5893);
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+}), 'Menu');
+exports.Z = _default;
+
+/***/ }),
+
+/***/ 4938:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "default", ({
+  enumerable: true,
+  get: function () {
+    return _utils.createSvgIcon;
+  }
+}));
+var _utils = __webpack_require__(4225);
+
+/***/ }),
+
+/***/ 2068:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ DefaultLayout)
+});
+
+// EXTERNAL MODULE: consume shared module (default) react@^18.2.0 (singleton) (fallback: ./node_modules/react/index.js) (eager)
+var index_js_eager_ = __webpack_require__(5166);
+var index_js_eager_default = /*#__PURE__*/__webpack_require__.n(index_js_eager_);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Box/Box.js + 1 modules
+var Box = __webpack_require__(8720);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Toolbar/Toolbar.js
+var Toolbar = __webpack_require__(7271);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/AppBar/AppBar.js
+var AppBar = __webpack_require__(7163);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Button/Button.js
+var Button = __webpack_require__(6798);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Drawer/Drawer.js
+var Drawer = __webpack_require__(3310);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/IconButton/IconButton.js
+var IconButton = __webpack_require__(2557);
+// EXTERNAL MODULE: ./node_modules/@mui/icons-material/Menu.js
+var Menu = __webpack_require__(326);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Typography/Typography.js
+var Typography = __webpack_require__(1138);
+;// CONCATENATED MODULE: ./src/components/nav/index.js
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/*
+  - Nav Bar
+  - Sidebar drawer
+*/
+
+
+// @mui components
+
+
+
+
+
+
+
+
+
+
+
+
+var LocalDrawer = /*#__PURE__*/index_js_eager_default().lazy(function () {
+  return __webpack_require__.e(/* import() */ 15).then(__webpack_require__.bind(__webpack_require__, 2015));
+});
+var drawerWidth = 240;
+var navItems = ['Start', 'Enable MF'];
+function Nav(_ref) {
+  var window = _ref.window;
+  var _useState = (0,index_js_eager_.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    mobileOpen = _useState2[0],
+    setMobileOpen = _useState2[1];
+  var handleDrawerToggle = function handleDrawerToggle() {
+    setMobileOpen(!mobileOpen);
+  };
+  var container = window !== undefined ? function () {
+    return window().document.body;
+  } : undefined;
+  return /*#__PURE__*/index_js_eager_default().createElement(index_js_eager_.Fragment, null, /*#__PURE__*/index_js_eager_default().createElement(AppBar/* default */.Z, {
+    component: "nav"
+  }, /*#__PURE__*/index_js_eager_default().createElement(Toolbar/* default */.Z, null, /*#__PURE__*/index_js_eager_default().createElement(IconButton/* default */.Z, {
+    color: "inherit",
+    "aria-label": "open drawer",
+    edge: "start",
+    onClick: handleDrawerToggle,
+    sx: {
+      mr: 2,
+      display: {
+        sm: 'none'
+      }
+    }
+  }, /*#__PURE__*/index_js_eager_default().createElement(Menu/* default */.Z, null)), /*#__PURE__*/index_js_eager_default().createElement(Typography/* default */.Z, {
+    variant: "h6",
+    component: "div",
+    sx: {
+      flexGrow: 1,
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, "Mod-Fed App"), /*#__PURE__*/index_js_eager_default().createElement(Box/* default */.Z, {
+    sx: {
+      display: {
+        xs: 'none',
+        sm: 'block'
+      }
+    }
+  }, navItems.map(function (item) {
+    return /*#__PURE__*/index_js_eager_default().createElement(Button/* default */.Z, {
+      key: item,
+      sx: {
+        color: '#fff'
+      }
+    }, item);
+  })))), /*#__PURE__*/index_js_eager_default().createElement(Box/* default */.Z, {
+    component: "nav"
+  }, /*#__PURE__*/index_js_eager_default().createElement(Drawer/* default */.ZP, {
+    container: container,
+    variant: "temporary",
+    open: mobileOpen,
+    onClose: handleDrawerToggle,
+    ModalProps: {
+      keepMounted: true // Better open performance on mobile.
+    },
+
+    sx: {
+      display: {
+        xs: 'block',
+        sm: 'none'
+      },
+      '& .MuiDrawer-paper': {
+        boxSizing: 'border-box',
+        width: drawerWidth
+      }
+    }
+  }, mobileOpen && /*#__PURE__*/index_js_eager_default().createElement((index_js_eager_default()).Suspense, {
+    fallback: /*#__PURE__*/index_js_eager_default().createElement("span", null)
+  }, /*#__PURE__*/index_js_eager_default().createElement(LocalDrawer, {
+    onClick: handleDrawerToggle,
+    navItems: navItems
+  })))));
+}
+;// CONCATENATED MODULE: ./src/layouts/default/index.js
+
+
+
+
+function DefaultLayout(_ref) {
+  var window = _ref.window,
+    children = _ref.children;
+  return /*#__PURE__*/index_js_eager_default().createElement(Box/* default */.Z, {
+    sx: {
+      display: 'flex'
+    }
+  }, /*#__PURE__*/index_js_eager_default().createElement(Nav, {
+    window: window
+  }), /*#__PURE__*/index_js_eager_default().createElement(Box/* default */.Z, {
+    component: "main",
+    sx: {
+      p: 3
+    }
+  }, /*#__PURE__*/index_js_eager_default().createElement(Toolbar/* default */.Z, null), children));
+}
+
+/***/ }),
+
+/***/ 4836:
+/***/ ((module) => {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ })
+
+}]);

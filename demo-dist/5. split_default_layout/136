@@ -1,0 +1,201 @@
+"use strict";
+(self["webpackChunkfirst_mfe"] = self["webpackChunkfirst_mfe"] || []).push([[136],{
+
+/***/ 9136:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ Reader)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/Typography/Typography.js + 1 modules
+var Typography = __webpack_require__(1647);
+;// CONCATENATED MODULE: ./src/components/reader/section.js
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+function Section(_ref) {
+  var sx = _ref.sx,
+    h1 = _ref.h1,
+    h2 = _ref.h2,
+    h3 = _ref.h3,
+    h4 = _ref.h4,
+    h5 = _ref.h5,
+    h6 = _ref.h6,
+    children = _ref.children;
+  return /*#__PURE__*/react.createElement(react.Fragment, null, h1 && /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h1",
+    sx: _objectSpread({}, sx)
+  }, h1), h2 && /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h2",
+    sx: _objectSpread({}, sx)
+  }, h2), h3 && /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h3",
+    sx: _objectSpread({}, sx)
+  }, h3), h4 && /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h4",
+    sx: _objectSpread({}, sx)
+  }, h4), h5 && /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h5",
+    sx: _objectSpread({}, sx)
+  }, h5), h6 && /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h6",
+    sx: _objectSpread({}, sx)
+  }, h6), children);
+}
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/List/List.js + 1 modules
+var List = __webpack_require__(8573);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/ListItem/ListItem.js + 3 modules
+var ListItem = __webpack_require__(1388);
+// EXTERNAL MODULE: ./node_modules/@mui/material/esm/ListItemText/ListItemText.js + 1 modules
+var ListItemText = __webpack_require__(3712);
+;// CONCATENATED MODULE: ./src/components/reader/gettingStarted.js
+
+
+
+
+
+
+function GettingStarted() {
+  return /*#__PURE__*/react.createElement(Section, {
+    h2: "Initial Setup",
+    sx: {
+      p: 6
+    }
+  }, /*#__PURE__*/react.createElement(Section, {
+    h3: "Dependencies",
+    sx: {
+      p: 3
+    }
+  }, /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, "The app is setup without the modulke federation, a \"vanilla\" bare-bones react-based frontend project."), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, "The dependencies are relatively simple: react, webpack, babel, and material ui", ' ', /*#__PURE__*/react.createElement("i", null, "(and all of their dependencies)"), ":"), /*#__PURE__*/react.createElement("code", {
+    style: {
+      whiteSpace: 'pre'
+    }
+  }, "\"dependencies\": {\n    \"@babel/core\": \"^7.20.5\",\n    \"@babel/preset-env\": \"^7.20.2\",\n    \"@babel/preset-react\": \"^7.18.6\",\n    \"@emotion/react\": \"^11.10.5\",\n    \"@emotion/styled\": \"^11.10.5\",\n    \"@mui/icons-material\": \"^5.10.16\",\n    \"@mui/material\": \"^5.10.17\",\n    \"babel-loader\": \"^9.1.0\",\n    \"html-webpack-plugin\": \"^5.5.0\",\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\",\n    \"webpack\": \"^5.75.0\",\n    \"webpack-cli\": \"^5.0.1\"\n  }")), /*#__PURE__*/react.createElement(Section, {
+    h3: "UI Parts",
+    sx: {
+      p: 3
+    }
+  }, /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, /*#__PURE__*/react.createElement("b", null, "THE APP"), " starts with a layout and this text content."), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, /*#__PURE__*/react.createElement("b", null, "THE LAYOUT"), " consists of a wrapper around a nav and some content."), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, /*#__PURE__*/react.createElement("b", null, "THE NAV"), " is the most complex part. There are a bunch of more components in the nav than listed here, but the ux outcome of the responsive nav is"), /*#__PURE__*/react.createElement(List/* default */.Z, null, /*#__PURE__*/react.createElement(ListItem/* default */.ZP, null, /*#__PURE__*/react.createElement(ListItemText/* default */.Z, {
+    primary: "An AppBar",
+    secondary: "The Sandwich Icon in mobile mode and the toolbar showing 3 menu items (made up items here)"
+  })), /*#__PURE__*/react.createElement(ListItem/* default */.ZP, null, /*#__PURE__*/react.createElement(ListItemText/* default */.Z, {
+    primary: "A Drawer",
+    secondary: 'The "open" drawer in mobile mode'
+  }))), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, /*#__PURE__*/react.createElement("b", null, "THE TEXT"), " content is served as part of a ", /*#__PURE__*/react.createElement("code", null, "<Reader />"), " component, served as a child of the ", /*#__PURE__*/react.createElement("code", null, "<DefaultLayout />"), " component"), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h4"
+  }, /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, "The ", /*#__PURE__*/react.createElement("code", null, "<App />"), " puts the layout and the Reader together in a small file that reads ", /*#__PURE__*/react.createElement("i", null, "(note the \"window\" gets passed around for a detail)")), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, /*#__PURE__*/react.createElement("code", {
+    style: {
+      whiteSpace: 'pre'
+    }
+  }, "export default function App({window}) {\n  return (\n    <DefaultLayout window={window}>\n      <Reader />\n    </DefaultLayout>\n  );\n}")))));
+}
+;// CONCATENATED MODULE: ./src/components/reader/enableModFed.js
+
+
+
+function EnableModFed() {
+  return /*#__PURE__*/react.createElement(Section, {
+    h3: "Updating The Host App",
+    sx: {
+      p: 3
+    }
+  }, /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, "Enabling", ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://webpack.js.org/concepts/module-federation/",
+    target: "none"
+  }, "Module Federation"), ' ', "involves adjusting the \"host\" app to work with module federation. Thist mostly involves tinkering with Webpack config, as module federation affects how parts of an app like this are built, bundled, and deployed. ", /*#__PURE__*/react.createElement("i", null, "(NOTE: the docs are referenced throughout this doc)")), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, /*#__PURE__*/react.createElement("b", null, "The \"Host\" App"), " gets introduced, where the app becomes able to \"consume\" code produced by another module. The host app is \"told\" to look for a specific named js file (", /*#__PURE__*/react.createElement("i", null, "in production"), ") where that named js file is responsible for \"taking over\" and \"owning\" the federated module, the Micro Frontend."), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, /*#__PURE__*/react.createElement("b", null, "A New Plugin"), " gets introduced into the webpack plugins array configuration: the", ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://webpack.js.org/concepts/module-federation",
+    target: "none"
+  }, /*#__PURE__*/react.createElement("code", null, "ModuleFederationPlugin")), ". ", /*#__PURE__*/react.createElement("br", null), "The plugin can be imported into the webpack config with something like", ' ', /*#__PURE__*/react.createElement("code", null, "const { ModuleFederationPlugin: ModFedPlugin } = require(\"webpack\").container"), ". ", /*#__PURE__*/react.createElement("br", null), "The webpack config plugins array can get something like this added to it:"), /*#__PURE__*/react.createElement("code", {
+    style: {
+      whiteSpace: 'pre'
+    }
+  }, " new ModFedPlugin({\n  name: 'the-host-app',\n  filename: 'remoteEntry.js',\n  remotes: {},\n  exposes: {},\n  shared: {\n    ...deps,\n    ...eagerDepsObj,\n  },\n}),"), /*#__PURE__*/react.createElement(Typography/* default */.Z, null, /*#__PURE__*/react.createElement("b", null, "name"), " is a friendly name for this host module."), /*#__PURE__*/react.createElement(Typography/* default */.Z, null, /*#__PURE__*/react.createElement("b", null, "filename"), " is the filename for this module's", ' ', /*#__PURE__*/react.createElement("i", null, "(now as a \"host\" app or \"container\" app)"), " relative path inside the `output.path` directory"), /*#__PURE__*/react.createElement(Typography/* default */.Z, null, /*#__PURE__*/react.createElement("b", null, "remotes"), " are objects of other modules that this module consumes. Right now there are no entries there, but this will get populated once a part of this app gets broken out into a separate micro-frontend Federated Module."), /*#__PURE__*/react.createElement(Typography/* default */.Z, null, /*#__PURE__*/react.createElement("b", null, "exposes"), " is an obj of modules that should be exposed by this module. When this has content, each key is used as public name.", ' ', /*#__PURE__*/react.createElement("i", null, "(otherwise public name is automatically inferred from request)")), /*#__PURE__*/react.createElement(Typography/* default */.Z, null, /*#__PURE__*/react.createElement("b", null, "shared"), " is used here to describe which node_modules are \"shared\". This is added primarily due to a", ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption",
+    target: "none"
+  }, "Known Error-Driven-Development Documentation note"), " by the webpack team, where eager module loading matters."), /*#__PURE__*/react.createElement(Section, {
+    h4: "Host App Impact On Production Bundle",
+    sx: {
+      p: 4
+    }
+  }, /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body1"
+  }, "Horse dog")), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "body2"
+  }, /*#__PURE__*/react.createElement("a", {
+    href: "https://scriptedalchemy.medium.com/",
+    target: "none"
+  }, "Zachary Jackson"), ", the creator of Module federation using webpack", ' ', /*#__PURE__*/react.createElement("i", null, "(along with Marais Rossouw and Tobias Koppers)"), ", has", ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://levelup.gitconnected.com/micro-frontend-architecture-replacing-a-monolith-from-the-inside-out-61f60d2e14c1",
+    target: "none"
+  }, "a"), ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://medium.com/swlh/webpack-5-module-federation-a-game-changer-to-javascript-architecture-bcdd30e02669",
+    target: "none"
+  }, "bunch"), ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://scriptedalchemy.medium.com/module-federation-how-do-we-create-unit-tests-for-it-bd0d73c999bc",
+    target: "none"
+  }, "of"), ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://scriptedalchemy.medium.com/server-side-rendering-tactics-for-federated-applications-765ec675d188",
+    target: "none"
+  }, "great"), ' ', /*#__PURE__*/react.createElement("a", {
+    href: "https://scriptedalchemy.medium.com/when-should-you-leverage-module-federation-and-how-2998b132c840",
+    target: "none"
+  }, "writings"), ' ', "on the topic."));
+}
+{
+  /* <Section h3="Updating The Module" sx={{ p: 3 }}>
+  <Typography variant="body1">
+    In this example, the nav gets broken up into a federated module. Perhaps nav has become super
+    complex and there is enough work and value to put some unique individuals on a new "nav" team.
+  </Typography>
+  </Section>; */
+}
+;// CONCATENATED MODULE: ./src/components/reader/index.js
+
+
+
+
+function Reader() {
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h1"
+  }, "Getting Started"), /*#__PURE__*/react.createElement(GettingStarted, null), /*#__PURE__*/react.createElement(Typography/* default */.Z, {
+    variant: "h1"
+  }, "Enabling Module Federation"), /*#__PURE__*/react.createElement(EnableModFed, null));
+}
+
+/***/ })
+
+}]);
