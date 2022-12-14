@@ -105,3 +105,4 @@ dist
 
 # mac thing
 .DS_Store
+host/.DS_Store
