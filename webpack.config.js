@@ -44,7 +44,7 @@ const THIS_FED_MOD = {
 module.exports = {
   entry: {
     index: ENTRY,
-    shared: ['react', 'react-dom'],
+    // shared: ['react', 'react-dom'],
   },
   output: {
     publicPath: THIS_FED_MOD.URL,
@@ -69,44 +69,21 @@ module.exports = {
       filename: THIS_FED_MOD.FILENAME,
       remotes: {},
       exposes: {},
-      // shared: {
-      //   ...deps,
-      //   ...eagerDepsObj,
-      // },
+      shared: {
+        ...deps,
+        ...eagerDepsObj,
+      },
     }),
   ],
   optimization: {
     runtimeChunk: 'single',
-    // splitChunks: {
-    //   chunks: 'all',
-    // },
     splitChunks: {
-      // ALL node mods in one chunk
-      // cacheGroups: {
-      //   vendor: {
-      //     test: /[\\/]node_modules[\\/]/,
-      //     name: 'vendors',
-      //     chunks: 'all',
-      //   },
-      // },
-
-      // JUST react+react-dom in a unique chunk
       cacheGroups: {
         reactVendor: {
           test: /[\\/]node_modules[\\/](react$)[\\/]/,
           name: 'react-dep',
           chunks: 'all',
-        },
-        reactDomVendor: {
-          test: /[\\/]node_modules[\\/](react-dom)[\\/]/,
-          name: 'react-dom-dep',
-          chunks: 'all',
-        },
-        webpackVendor: {
-          test: /[\\/]node_modules[\\/](webpack)[\\/]/,
-          name: 'webpack-dep',
-          chunks: 'all',
-        },
+        }
       },
     },
   },
