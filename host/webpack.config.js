@@ -11,41 +11,25 @@ const FED_MOD_HOST = process.env.HOST_FED_MOD_HOST || 'localhost'
 const FED_MOD_PORT = process.env.HOST_FED_MOD_PORT || 8080;
 const deps = require('./package.json').dependencies;
 
-/*
-  Eager dependencies, per error-driven-development 
-  see 
-  https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption
-
-  - list of modules that are set to "eagerly load", to enable quick additions
-  - loop through each, build an obj that gets used in the ModuleFederationPlugin
-*/ 
-const eagerDeps = [
-  'react',
-  'react-dom',
-  '@emotion/styled',
-  '@emotion/react',
-  '@mui/icons-material',
-  '@mui/material',
-];
-const eagerDepsObj = {}
-eagerDeps.forEach(d => { 
-  eagerDepsObj[`${d}`] = {
-      singleton: true,
-      requiredVersion: deps[d],
-      eager: true,
-    }
-})
-
 const THIS_FED_MOD = {
   NAME: 'host-app',
   FILENAME: 'remoteEntry.js',
   URL: `http://${FED_MOD_HOST}:${FED_MOD_PORT}/`,
 };
+
+const NAV_FED_OBJ = {
+  NAME: 'nav',
+  HOST: 'http://localhost',
+  PORT: process.env.COUNTER_PORT || 8081,
+  FILE: 'remoteEntry.js',
+};
+const NAV_FED_STR = `${NAV_FED_OBJ.NAME}@${NAV_FED_OBJ.HOST}:${NAV_FED_OBJ.PORT}/${NAV_FED_OBJ.FILE}`;
+
+const NAV_FED_REMOTE = {
+  nav: NAV_FED_STR,
+};
+
 module.exports = {
-  entry: {
-    index: ENTRY,
-    // shared: ['react', 'react-dom'],
-  },
   output: {
     publicPath: THIS_FED_MOD.URL,
     chunkFilename: `[name]`,
@@ -68,23 +52,13 @@ module.exports = {
       name: THIS_FED_MOD.NAME,
       filename: THIS_FED_MOD.FILENAME,
       remotes: {},
+      // remotes: {
+      //   ...NAV_FED_REMOTE,
+      // },
       exposes: {},
       shared: {
         ...deps,
-        ...eagerDepsObj,
       },
     }),
   ],
-  optimization: {
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        reactVendor: {
-          test: /[\\/]node_modules[\\/](react$)[\\/]/,
-          name: 'react-dep',
-          chunks: 'all',
-        }
-      },
-    },
-  },
 };

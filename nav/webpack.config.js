@@ -1,13 +1,13 @@
-const { ModuleFederationPlugin: ModFedPlugin } = require("webpack").container
+const { ModuleFederationPlugin: ModFedPlugin } = require('webpack').container;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { resolve } = require('path');
 
 // app-wide vars
 const ROOT_JS_FILE = './src/index.js';
-const HTML_TEMPLATE_FILE = './src/index.html'
+const HTML_TEMPLATE_FILE = './src/index.html';
 const ENTRY = resolve(__dirname, ROOT_JS_FILE);
 // federated module vars
-const FED_MOD_HOST = process.env.HOST_FED_MOD_HOST || 'localhost'
+const FED_MOD_HOST = process.env.HOST_FED_MOD_HOST || 'localhost';
 const FED_MOD_PORT = process.env.HOST_FED_MOD_PORT || 8081;
 const deps = require('./package.json').dependencies;
 
@@ -18,37 +18,42 @@ const deps = require('./package.json').dependencies;
 
   - list of modules that are set to "eagerly load", to enable quick additions
   - loop through each, build an obj that gets used in the ModuleFederationPlugin
-*/ 
+*/
 const eagerDeps = [
   'react',
   'react-dom',
-  '@emotion/styled',
-  '@emotion/react',
-  '@mui/icons-material',
-  '@mui/material',
+  // '@emotion/styled',
+  // '@emotion/react',
+  // '@mui/icons-material',
+  // '@mui/material',
 ];
-const eagerDepsObj = {}
-eagerDeps.forEach(d => { 
+const eagerDepsObj = {};
+eagerDeps.forEach((d) => {
   eagerDepsObj[`${d}`] = {
-      singleton: true,
-      requiredVersion: deps[d],
-      eager: true,
-    }
-})
+    singleton: true,
+    requiredVersion: deps[d],
+    eager: true,
+  };
+});
 
 const THIS_FED_MOD = {
   NAME: 'nav',
   FILENAME: 'remoteEntry.js',
   URL: `http://${FED_MOD_HOST}:${FED_MOD_PORT}/`,
 };
+
 module.exports = {
-  entry: {
-    index: ENTRY,
-    // shared: ['react', 'react-dom'],
-  },
+  // entry: {
+  // index: ENTRY,
+  // shared: ['react', 'react-dom'],
+  // },
   output: {
     publicPath: THIS_FED_MOD.URL,
     chunkFilename: `[name]`,
+    uniqueName: 'nav',
+  },
+  resolve: {
+    extensions: ['.js'],
   },
   module: {
     rules: [
@@ -60,31 +65,44 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: HTML_TEMPLATE_FILE,
-      filename: './index.html',
-    }),
     new ModFedPlugin({
       name: THIS_FED_MOD.NAME,
       filename: THIS_FED_MOD.FILENAME,
       remotes: {},
-      exposes: {},
+      exposes: { './Nav': './src/components/Nav' },
       shared: {
         ...deps,
-        ...eagerDepsObj,
+        //   // ...eagerDepsObj,
+        react: {
+          singleton: true,
+          requiredVersion: deps.react,
+          eager: true
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: deps['react-dom'],
+          eager: true
+        },
       },
     }),
+    new HtmlWebPackPlugin({
+      template: HTML_TEMPLATE_FILE,
+      filename: './index.html',
+    }),
   ],
-  optimization: {
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        reactVendor: {
-          test: /[\\/]node_modules[\\/](react$)[\\/]/,
-          name: 'react-dep',
-          chunks: 'all',
-        }
-      },
-    },
+  // optimization: {
+  //   runtimeChunk: 'single',
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       reactVendor: {
+  //         test: /[\\/]node_modules[\\/](react$)[\\/]/,
+  //         name: 'react-dep',
+  //         chunks: 'all',
+  //       },
+  //     },
+  //   },
+  // },
+  devServer: {
+    port: 8081,
   },
 };

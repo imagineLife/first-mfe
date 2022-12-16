@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import Link from '@mui/material/Link';
 
 export default function EnableModFed() {
   return (
@@ -94,44 +95,44 @@ export default function EnableModFed() {
           </ListItem>
         </List>
       </Section>
-      <Typography variant="body2">
-        <a href="https://scriptedalchemy.medium.com/" target="none">
+      {/* <Typography variant="body2">
+        <Link href="https://scriptedalchemy.medium.com/" target="none">
           Zachary Jackson
-        </a>
+        </Link>
         , the creator of Module federation using webpack{' '}
         <i>(along with Marais Rossouw and Tobias Koppers)</i>, has{' '}
-        <a
+        <Link
           href="https://levelup.gitconnected.com/micro-frontend-architecture-replacing-a-monolith-from-the-inside-out-61f60d2e14c1"
           target="none"
         >
           a
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://medium.com/swlh/webpack-5-module-federation-a-game-changer-to-javascript-architecture-bcdd30e02669"
           target="none"
         >
           bunch
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://scriptedalchemy.medium.com/module-federation-how-do-we-create-unit-tests-for-it-bd0d73c999bc"
           target="none"
         >
           of
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://scriptedalchemy.medium.com/server-side-rendering-tactics-for-federated-applications-765ec675d188"
           target="none"
         >
           great
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://scriptedalchemy.medium.com/when-should-you-leverage-module-federation-and-how-2998b132c840"
           target="none"
         >
           writings
-        </a>{' '}
+        </Link>{' '}
         on the topic.
-      </Typography>
+      </Typography> */}
     </Section>
   );
 }
