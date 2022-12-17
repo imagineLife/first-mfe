@@ -37,15 +37,14 @@ export default function EnableModFed() {
         The webpack config plugins array can get something like this added to it:
       </Typography>
       <code style={{ whiteSpace: 'pre' }}>{` new ModFedPlugin({
-  name: 'the-host-app',
-  filename: 'remoteEntry.js',
+  name: THIS_FED_MOD.NAME,
+  filename: 'host-app',
   remotes: {},
   exposes: {},
   shared: {
     ...deps,
-    ...eagerDepsObj,
   },
-}),`}</code>
+}`}</code>
       <Typography>
         <b>name</b> is a friendly name for this host module.
       </Typography>
@@ -55,7 +54,7 @@ export default function EnableModFed() {
         directory
       </Typography>
       <Typography>
-        <b>remotes</b> are objects of other modules that this module consumes. Right now there are
+        <b>remotes</b> are key/value pairs of other modules that this module consumes - "remote" modules. Right now there are
         no entries there, but this will get populated once a part of this app gets broken out into a
         separate micro-frontend Federated Module.
       </Typography>
@@ -95,7 +94,7 @@ export default function EnableModFed() {
           </ListItem>
         </List>
       </Section>
-      {/* <Typography variant="body2">
+      <Typography variant="body2">
         <Link href="https://scriptedalchemy.medium.com/" target="none">
           Zachary Jackson
         </Link>
@@ -132,7 +131,7 @@ export default function EnableModFed() {
           writings
         </Link>{' '}
         on the topic.
-      </Typography> */}
+      </Typography>
     </Section>
   );
 }
