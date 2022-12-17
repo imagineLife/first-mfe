@@ -72,7 +72,6 @@ module.exports = {
       exposes: { './Nav': './src/components/Nav' },
       shared: {
         ...deps,
-        //   // ...eagerDepsObj,
         react: {
           singleton: true,
           requiredVersion: deps.react,
