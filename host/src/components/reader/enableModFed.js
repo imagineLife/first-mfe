@@ -54,9 +54,9 @@ export default function EnableModFed() {
         directory
       </Typography>
       <Typography>
-        <b>remotes</b> are key/value pairs of other modules that this module consumes - "remote" modules. Right now there are
-        no entries there, but this will get populated once a part of this app gets broken out into a
-        separate micro-frontend Federated Module.
+        <b>remotes</b> are key/value pairs of other modules that this module consumes - "remote"
+        modules. Right now there are no entries there, but this will get populated once a part of
+        this app gets broken out into a separate micro-frontend Federated Module.
       </Typography>
       <Typography>
         <b>exposes</b> is an obj of modules that should be exposed by this module. When this has
@@ -64,15 +64,9 @@ export default function EnableModFed() {
         <i>(otherwise public name is automatically inferred from request)</i>
       </Typography>
       <Typography>
-        <b>shared</b> is used here to describe which node_modules are "shared". This is added
-        primarily due to a{' '}
-        <a
-          href="https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption"
-          target="none"
-        >
-          Known Error-Driven-Development Documentation note
-        </a>{' '}
-        by the webpack team, where eager module loading matters.
+        <b>shared</b> is used here to describe which node_modules are "shared" and accessible across
+        projects. The spread <code>deps</code> object is sourced earlier in the file from{' '}
+        <code>const deps = require('./package.json').dependencies;</code>
       </Typography>
 
       <Section h4="Config Impact On Production Bundle" sx={{ p: 4 }}>
