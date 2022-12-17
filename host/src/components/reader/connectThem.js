@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { Nav } from 'nav/Nav';
+// import { Nav } from 'nav/Nav';
 
 export default function EnableModFed() {
   return (
@@ -78,7 +78,7 @@ const NAV_FED_REMOTE = {
           />
         </ListItem>
       </List>
-      <Nav />
+      {/* <Nav /> */}
     </Section>
   );
 }

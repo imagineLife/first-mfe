@@ -1,1 +1,1 @@
-import('./mfeWorkaround.js')
+import(/* webpackChunkName: "mfeWorkaround" */ './mfeWorkaround.js');

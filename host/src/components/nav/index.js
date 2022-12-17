@@ -17,7 +17,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-const LocalDrawer = React.lazy(() => import('./../localDrawer'));
+const LocalDrawer = React.lazy(() => import(/* webpackChunkName: "LocalDrawer" */ './../localDrawer'));
 
 const drawerWidth = 240;
 const navItems = ['Start', 'Enable MF'];

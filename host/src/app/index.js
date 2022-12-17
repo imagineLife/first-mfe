@@ -1,7 +1,11 @@
 // import('./mfeWorkaround.js');
 import React, { useState } from 'react';
-const DefaultLayout = React.lazy(() => import('./../layouts/default'));
-const Reader = React.lazy(() => import('./../components/reader'));
+const DefaultLayout = React.lazy(() =>
+  import(/* webpackChunkName: "DefaultLayout" */ './../layouts/default')
+);
+const Reader = React.lazy(() =>
+  import(/* webpackChunkName: "Reader" */ './../components/reader')
+);
 
 /*
   The app is a composition of a DefaultLayout and a Reader
