@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-// import { Nav } from 'nav/Nav'
+import { Nav } from 'nav/Nav';
 
 export default function EnableModFed() {
   return (
@@ -43,11 +43,42 @@ export default function EnableModFed() {
         <ListItem>
           <ListItemText
             primary="Setup the Host To Consume The Nav Module"
-            secondary={'{counter: `counter@$localhost:8081/remoteEntry.js`}'}
+            secondary={
+              <Fragment>
+                <p>
+                  The host's moduleFederationPlugin "remotes" key/value gets populated. The content
+                  and syntax, here, is particular:
+                </p>
+                <code
+                  style={{ whiteSPace: 'pre' }}
+                >{`nav@http://localhost:8081/remoteEntry.js`}</code>
+                <p>
+                  the name of the module (<i>nav</i>)
+                </p>
+                <p>The Network type "@http://"</p>
+                <p>The host and port of the nav module "localhost:8081"</p>
+                <p>The name of the remote module's "filename": "remoteEntry.js"</p>
+                <p>I've also had success converting a bunch of those values into variables...</p>
+                <code style={{ whiteSpace: 'pre' }}>{`const NAV_FED_OBJ = {
+  NAME: 'nav',
+  HOST: 'http://localhost',
+  PORT: process.env.COUNTER_PORT || 8081,
+  FILE: 'remoteEntry.js',
+};
+const NAV_FED_STR = \$\{NAV_FED_OBJ.NAME}@\$\{NAV_FED_OBJ.HOST}:\$\{NAV_FED_OBJ.PORT}/\$\{NAV_FED_OBJ.FILE};
+const NAV_FED_REMOTE = {
+  nav: NAV_FED_STR,
+};`}</code>
+                <p>Then in the plugin:</p>
+                <code style={{ whiteSpace: 'pre' }}>{`remotes: {
+        ...NAV_FED_REMOTE,
+      },`}</code>
+              </Fragment>
+            }
           />
         </ListItem>
       </List>
-      {/* <Nav /> */}
+      <Nav />
     </Section>
   );
 }

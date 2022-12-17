@@ -37,13 +37,41 @@ export default function EnableModFed() {
                     point is to begin setting up the MFE communication between the two repos. The UI
                     for the nav will come shortly!
                   </p>
+                  <code style={{ whiteSpace: 'pre' }}>{`import React from 'react';
+
+export const Nav = () => { 
+  return (<div id="nav">Nav Here</div>)
+}`}</code>
+                  <p>
+                    I've only had success, connecting this component to the host app, with this component as a named export: not as a default export.
+                  </p>
                   <p>
                     Update the dev port to run on: the host app, in my case, runs on 8080. I set
                     this new repo to run on 8081.
                   </p>
+                  <p>Adjust the ModuleFederationPlugin config object:</p>
+                  <code style={{ whiteSpace: 'pre' }}>{`new ModFedPlugin({
+  name: 'nav',
+  filename: 'remoteEntry.js',
+  remotes: {},
+  exposes: { './Nav': './src/components/Nav' },
+  shared: {
+    ...deps,
+    react: {
+      singleton: true,
+      requiredVersion: deps.react,
+      eager: true
+    },
+    'react-dom': {
+      singleton: true,
+      requiredVersion: deps['react-dom'],
+      eager: true
+    },
+  },
+}),`}</code>
                   <p>
-                    Adjust the "name" of the ModuleFederationPlugin config object - i set this to be
-                    named "nav" for now.
+                    The filename, here, will match an updated field in the host ModuleFederation
+                    Plugin.
                   </p>
                   <p>
                     Validate that the new app can be served from the new port (
