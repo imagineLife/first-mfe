@@ -58,7 +58,7 @@ export default function EnableModFed() {
                 <p>The Network type "@http://"</p>
                 <p>The host and port of the nav module "localhost:8081"</p>
                 <p>The name of the remote module's "filename": "remoteEntry.js"</p>
-                <p>I've also had success converting a bunch of those values into variables...</p>
+                <p>I've also had success converting a bunch of those values into variables, potentially taken out of the app entirely later on:</p>
                 <code style={{ whiteSpace: 'pre' }}>{`const NAV_FED_OBJ = {
   NAME: 'nav',
   HOST: 'http://localhost',
