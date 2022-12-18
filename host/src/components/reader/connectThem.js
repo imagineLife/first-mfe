@@ -58,7 +58,10 @@ export default function EnableModFed() {
                 <p>The Network type "@http://"</p>
                 <p>The host and port of the nav module "localhost:8081"</p>
                 <p>The name of the remote module's "filename": "remoteEntry.js"</p>
-                <p>I've also had success converting a bunch of those values into variables, potentially taken out of the app entirely later on:</p>
+                <p>
+                  I've also had success converting a bunch of those values into variables,
+                  potentially taken out of the app entirely later on:
+                </p>
                 <code style={{ whiteSpace: 'pre' }}>{`const NAV_FED_OBJ = {
   NAME: 'nav',
   HOST: 'http://localhost',
@@ -78,7 +81,42 @@ const NAV_FED_REMOTE = {
           />
         </ListItem>
       </List>
-      {/* <Nav /> */}
+      <Section h4="Import and Use The Remote Module In The Host App" sx={{ p: 3 }}>
+        <List>
+          <ListItem>
+            <ListItemText
+              primary="Import the remote, the nav, in the host where you want to use it -"
+              secondary={
+                <code style={{ whiteSpace: 'pre' }}>{`import { Nav } from 'nav/Nav';`}</code>
+              }
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText
+              primary="Render the Nav in the host somewhere"
+              secondary={<code style={{ whiteSpace: 'pre' }}>{`<Nav />`}</code>}
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText
+              primary="Start Both Modules & See The Host Render The Remote Item!"
+              secondary={
+                <ul>
+                  <li>
+                    Start the remote module, the nav project, in one terminal instance:{' '}
+                    <code style={{ whiteSpace: 'pre' }}>{`remote$ npm run start`}</code>
+                  </li>
+                  <li>
+                    Start the host module in another terminal instance:{' '}
+                    <code style={{ whiteSpace: 'pre' }}>{`host$ npm run start`}</code>
+                  </li>
+                </ul>
+              }
+            />
+          </ListItem>
+        </List>
+        {/* <Nav /> */}
+      </Section>
     </Section>
   );
 }
