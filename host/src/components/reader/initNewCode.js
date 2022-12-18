@@ -37,19 +37,54 @@ export default function EnableModFed() {
                     point is to begin setting up the MFE communication between the two repos. The UI
                     for the nav will come shortly!
                   </p>
+                  <code style={{ whiteSpace: 'pre' }}>{`import React from 'react';
+
+export const Nav = () => { 
+  return (<div id="nav">Nav Here</div>)
+}`}</code>
+                  <p>
+                    I've only had success, connecting this component to the host app, with this
+                    component as a named export: not as a default export.
+                  </p>
                   <p>
                     Update the dev port to run on: the host app, in my case, runs on 8080. I set
                     this new repo to run on 8081.
                   </p>
+                  <p>Adjust the ModuleFederationPlugin config object:</p>
+                  <code style={{ whiteSpace: 'pre' }}>{`new ModFedPlugin({
+  name: 'nav',
+  filename: 'remoteEntry.js',
+  remotes: {},
+  exposes: { './Nav': './src/components/Nav' },
+  shared: {
+    ...deps,
+    react: {
+      singleton: true,
+      requiredVersion: deps.react,
+      eager: true
+    },
+    'react-dom': {
+      singleton: true,
+      requiredVersion: deps['react-dom'],
+      eager: true
+    },
+  },
+}),`}</code>
                   <p>
-                    Adjust the "name" of the ModuleFederationPlugin config object - i set this to be
-                    named "nav" for now.
-                  </p>
-                  <p>
-                    Validate that the new app can be served from the new port (
-                    <i>here at localhost:8081</i>), and that the <code>npm run build</code> command
-                    puts a bunch of js/html into the dist folder in the repo. With this, the remote
-                    is a skeleton ready to connect to the host app!
+                    The filename, here, will match an updated field in the host ModuleFederation
+                    Plugin. The extended react & react-dom details in the "shared" object are added
+                    primarily due to a{' '}
+                    <a
+                      href="https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption"
+                      target="none"
+                    >
+                      Known Error-Driven-Development Documentation note
+                    </a>{' '}
+                    by the webpack team, where eager module loading matters. Validate that the new
+                    app can be served from the new port (<i>here at localhost:8081</i>), and that
+                    the <code>npm run build</code> command puts a bunch of js/html into the dist
+                    folder in the repo. With this, the remote is a skeleton ready to connect to the
+                    host app!
                   </p>
                 </React.Fragment>
               }

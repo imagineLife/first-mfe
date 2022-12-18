@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Nav } from './../components/Nav'
 export default function App({ window }) {
-  return <div id="nav">Nav Here</div>;
+  return <Nav />;
 }

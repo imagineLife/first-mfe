@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import Link from '@mui/material/Link';
 
 export default function EnableModFed() {
   return (
@@ -36,15 +37,14 @@ export default function EnableModFed() {
         The webpack config plugins array can get something like this added to it:
       </Typography>
       <code style={{ whiteSpace: 'pre' }}>{` new ModFedPlugin({
-  name: 'the-host-app',
-  filename: 'remoteEntry.js',
+  name: THIS_FED_MOD.NAME,
+  filename: 'host-app',
   remotes: {},
   exposes: {},
   shared: {
     ...deps,
-    ...eagerDepsObj,
   },
-}),`}</code>
+}`}</code>
       <Typography>
         <b>name</b> is a friendly name for this host module.
       </Typography>
@@ -54,9 +54,9 @@ export default function EnableModFed() {
         directory
       </Typography>
       <Typography>
-        <b>remotes</b> are objects of other modules that this module consumes. Right now there are
-        no entries there, but this will get populated once a part of this app gets broken out into a
-        separate micro-frontend Federated Module.
+        <b>remotes</b> are key/value pairs of other modules that this module consumes - "remote"
+        modules. Right now there are no entries there, but this will get populated once a part of
+        this app gets broken out into a separate micro-frontend Federated Module.
       </Typography>
       <Typography>
         <b>exposes</b> is an obj of modules that should be exposed by this module. When this has
@@ -64,15 +64,9 @@ export default function EnableModFed() {
         <i>(otherwise public name is automatically inferred from request)</i>
       </Typography>
       <Typography>
-        <b>shared</b> is used here to describe which node_modules are "shared". This is added
-        primarily due to a{' '}
-        <a
-          href="https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption"
-          target="none"
-        >
-          Known Error-Driven-Development Documentation note
-        </a>{' '}
-        by the webpack team, where eager module loading matters.
+        <b>shared</b> is used here to describe which node_modules are "shared" and accessible across
+        projects. The spread <code>deps</code> object is sourced earlier in the file from{' '}
+        <code>const deps = require('./package.json').dependencies;</code>
       </Typography>
 
       <Section h4="Config Impact On Production Bundle" sx={{ p: 4 }}>
@@ -95,41 +89,41 @@ export default function EnableModFed() {
         </List>
       </Section>
       <Typography variant="body2">
-        <a href="https://scriptedalchemy.medium.com/" target="none">
+        <Link href="https://scriptedalchemy.medium.com/" target="none">
           Zachary Jackson
-        </a>
+        </Link>
         , the creator of Module federation using webpack{' '}
         <i>(along with Marais Rossouw and Tobias Koppers)</i>, has{' '}
-        <a
+        <Link
           href="https://levelup.gitconnected.com/micro-frontend-architecture-replacing-a-monolith-from-the-inside-out-61f60d2e14c1"
           target="none"
         >
           a
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://medium.com/swlh/webpack-5-module-federation-a-game-changer-to-javascript-architecture-bcdd30e02669"
           target="none"
         >
           bunch
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://scriptedalchemy.medium.com/module-federation-how-do-we-create-unit-tests-for-it-bd0d73c999bc"
           target="none"
         >
           of
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://scriptedalchemy.medium.com/server-side-rendering-tactics-for-federated-applications-765ec675d188"
           target="none"
         >
           great
-        </a>{' '}
-        <a
+        </Link>{' '}
+        <Link
           href="https://scriptedalchemy.medium.com/when-should-you-leverage-module-federation-and-how-2998b132c840"
           target="none"
         >
           writings
-        </a>{' '}
+        </Link>{' '}
         on the topic.
       </Typography>
     </Section>
