@@ -22,7 +22,7 @@ const deps = require('./package.json').dependencies;
 const eagerDeps = [
   'react',
   'react-dom',
-  // '@emotion/styled',
+  '@emotion/styled',
   // '@emotion/react',
   // '@mui/icons-material',
   // '@mui/material',
@@ -32,9 +32,15 @@ eagerDeps.forEach((d) => {
   eagerDepsObj[`${d}`] = {
     singleton: true,
     requiredVersion: deps[d],
-    eager: true,
   };
+  if (d.includes('react')) { 
+    eagerDepsObj[`${d}`].eager = true;
+  }
 });
+
+console.log('eagerDepsObj')
+console.log(eagerDepsObj)
+
 
 const THIS_FED_MOD = {
   NAME: 'nav',
