@@ -1,1 +1,1 @@
-import(/* webpackChunkName: "mfeWorkaround" */ './mfeWorkaround.js');
+import(/* webpackChunkName: "mfeWorkaround" */ './mfeWorkaround');
