@@ -51,9 +51,9 @@ module.exports = {
     new ModFedPlugin({
       name: THIS_FED_MOD.NAME,
       filename: THIS_FED_MOD.FILENAME,
-      // remotes: {
-      //   ...NAV_FED_REMOTE,
-      // },
+      remotes: {
+        ...NAV_FED_REMOTE,
+      },
       exposes: {},
       shared: {
         ...deps,
