@@ -65,7 +65,7 @@ export default function EnableModFed() {
                 <code style={{ whiteSpace: 'pre' }}>{`const NAV_FED_OBJ = {
   NAME: 'nav',
   HOST: 'http://localhost',
-  PORT: process.env.COUNTER_PORT || 8081,
+  PORT: process.env.NAV_MOD_PORT || 8081,
   FILE: 'remoteEntry.js',
 };
 const NAV_FED_STR = \$\{NAV_FED_OBJ.NAME}@\$\{NAV_FED_OBJ.HOST}:\$\{NAV_FED_OBJ.PORT}/\$\{NAV_FED_OBJ.FILE};
