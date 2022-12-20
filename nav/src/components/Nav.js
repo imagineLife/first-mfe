@@ -17,12 +17,20 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-const LocalDrawer = React.lazy(() =>
-  import(/* webpackChunkName: "LocalDrawer" */ './localDrawer')
-);
+const LocalDrawer = React.lazy(() => import(/* webpackChunkName: "LocalDrawer" */ './localDrawer'));
 
 const drawerWidth = 240;
 const navItems = ['Start', 'Enable MF'];
+
+function NavItems({ itms }) {
+  {
+    itms?.map((i) => (
+      <Button key={i} sx={{ color: '#fff' }}>
+        {i}
+      </Button>
+    ));
+  }
+}
 
 function Nav({ window }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,11 +61,7 @@ function Nav({ window }) {
             Mod-Fed App
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
+            <NavItems itms={NavItems} />
           </Box>
         </Toolbar>
       </AppBar>
@@ -86,5 +90,5 @@ function Nav({ window }) {
   );
 }
 
-export default Nav
-export { Nav as Nav }
+export default Nav;
+export { Nav as Nav };
