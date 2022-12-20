@@ -68,6 +68,31 @@ export default function EnableModFed() {
         projects. The spread <code>deps</code> object is sourced earlier in the file from{' '}
         <code>const deps = require('./package.json').dependencies;</code>
       </Typography>
+      <Typography>
+        Also, one detail I've adopted is to set the majority of the code output of the remote module
+        to be in a directory:
+      </Typography>
+      <code style={{ whiteSpace: 'pre' }}>{`output: {
+  publicPath: THIS_FED_MOD.URL,
+  chunkFilename: 'nav/[name].mjs',
+  uniqueName: 'nav',
+},`}</code>
+      <Typography>
+        <b>publicPath</b> is the url that this is expected to be served at. Here, the value is
+        sourced from an env var.
+      </Typography>
+      <Typography>
+        <b>chunkFilename</b> sets how each file/chunk in the output (bundle) is named. Here, the
+        contents get{' '}
+        <a href="https://webpack.js.org/configuration/output/#outputfilename" target="none">
+          stored in a folder structure
+        </a>{' '}
+        and a "[name]" substitution in the filename (see webpack docs for more substitution
+        examples, like a hash for cache busting).
+      </Typography>
+      <Typography>
+        <b>uniqueName</b> has been helpful to me for naming remote bundles. Some online examples I've stumbled on don't do this, which will cause naming conflicts when multiple remotes are in play. I've chosen to use a string that represents the remote module.
+      </Typography>
 
       <Section h4="Config Impact On Production Bundle" sx={{ p: 4 }}>
         <Typography variant="body1">
