@@ -44,18 +44,14 @@ console.log(eagerDepsObj)
 
 const THIS_FED_MOD = {
   NAME: 'nav',
-  FILENAME: 'remoteEntry.js',
+  FILENAME: 'navEntry.js',
   URL: `http://${FED_MOD_HOST}:${FED_MOD_PORT}/`,
 };
 
 module.exports = {
-  // entry: {
-  // index: ENTRY,
-  // shared: ['react', 'react-dom'],
-  // },
   output: {
     publicPath: THIS_FED_MOD.URL,
-    chunkFilename: `[name]`,
+    chunkFilename: `nav/[name].mjs`,
     uniqueName: 'nav',
   },
   resolve: {
@@ -81,12 +77,12 @@ module.exports = {
         react: {
           singleton: true,
           requiredVersion: deps.react,
-          eager: true
+          eager: true,
         },
         'react-dom': {
           singleton: true,
           requiredVersion: deps['react-dom'],
-          eager: true
+          eager: true,
         },
       },
     }),
