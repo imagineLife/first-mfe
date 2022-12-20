@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-const NavBar = React.lazy(() => import('nav/Nav'));
+const NavBar = React.lazy(() => import(/* webpackChunkName: "NavBar" */'nav/Nav'));
 
 export default function DefaultLayout({ window, children }) {
   return (

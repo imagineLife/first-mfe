@@ -4,6 +4,7 @@ import GettingStarted from './gettingStarted';
 import EnableModFed from './enableModFed';
 import InitNewCode from './initNewCode';
 import ConnectThem from './connectThem';
+import BundlingForProd from './bundlingForProd';
 
 export default function Reader() {
   return (
@@ -15,6 +16,7 @@ export default function Reader() {
       <EnableModFed />
       <InitNewCode />
       <ConnectThem />
+      <BundlingForProd />
     </Fragment>
   );
 }

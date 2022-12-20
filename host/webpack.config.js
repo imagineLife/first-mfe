@@ -9,6 +9,7 @@ const ENTRY = resolve(__dirname, ROOT_JS_FILE);
 // federated module vars
 const FED_MOD_HOST = process.env.HOST_FED_MOD_HOST || 'localhost'
 const FED_MOD_PORT = process.env.HOST_FED_MOD_PORT || 8080;
+const NAV_MOD_FILENAME = process.env.NAV_FED_MOD_NAME || 'remoteEntry.js';
 const deps = require('./package.json').dependencies;
 
 const THIS_FED_MOD = {
@@ -20,8 +21,8 @@ const THIS_FED_MOD = {
 const NAV_FED_OBJ = {
   NAME: 'nav',
   HOST: 'http://localhost',
-  PORT: process.env.COUNTER_PORT || 8081,
-  FILE: 'remoteEntry.js',
+  PORT: process.env.NAV_MOD_PORT || 8081,
+  FILE: NAV_MOD_FILENAME,
 };
 const NAV_FED_STR = `${NAV_FED_OBJ.NAME}@${NAV_FED_OBJ.HOST}:${NAV_FED_OBJ.PORT}/${NAV_FED_OBJ.FILE}`;
 
