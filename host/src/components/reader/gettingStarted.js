@@ -1,8 +1,6 @@
 import React from 'react';
 import Section from './section';
-import {
-  Typography
-} from '@mui/material';
+import { Typography } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -12,12 +10,12 @@ export default function GettingStarted() {
     <Section h2="Initial Setup" sx={{ p: 6 }}>
       <Section h3="Dependencies" sx={{ p: 3 }}>
         <Typography variant="body1">
-          The app is setup without the modulke federation, a "vanilla" bare-bones react-based
-          frontend project.
+          The app is setup without the module federation to begin with: something like a "vanilla"
+          react-based frontend project.
         </Typography>
         <Typography variant="body1">
-          The dependencies are relatively simple: react, webpack, babel, and material ui{' '}
-          <i>(and all of their dependencies)</i>:
+          The dependencies are relatively simple here: react, webpack, babel, and material ui for
+          some components <i>(and all of their dependencies)</i>:
         </Typography>
         <code style={{ whiteSpace: 'pre' }}>
           {`"dependencies": {

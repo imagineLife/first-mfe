@@ -15,15 +15,15 @@ export default function EnableModFed() {
         <a href="https://webpack.js.org/concepts/module-federation/" target="none">
           Module Federation
         </a>{' '}
-        involves adjusting the "host" app to work with module federation. Thist mostly involves
+        involves adjusting the "host" app to work with module federation. This mostly involves
         tinkering with Webpack config, as module federation affects how parts of an app like this
         are built, bundled, and deployed. <i>(NOTE: the docs are referenced throughout this doc)</i>
       </Typography>
       <Typography variant="body1">
-        <b>The "Host" App</b> gets introduced, where the app becomes able to "consume" code produced
-        by another module. The host app is "told" to look for a specific named js file (
-        <i>in production</i>) where that named js file is responsible for "taking over" and "owning"
-        the federated module, the Micro Frontend.
+        <b>The "Host" App</b> principle gets introduced, where the app becomes able to "consume"
+        code produced by another module. The host app is configured to look for a specific named js
+        file where that named js file is responsible for "taking over" and "owning" the federated
+        module, the Micro Frontend.
       </Typography>
       <Typography variant="body1">
         <b>A New Plugin</b> gets introduced into the webpack plugins array configuration: the{' '}
@@ -68,7 +68,7 @@ export default function EnableModFed() {
         projects. The spread <code>deps</code> object is sourced earlier in the file from{' '}
         <code>const deps = require('./package.json').dependencies;</code>
       </Typography>
-      <Typography>
+      {/* <Typography>
         Also, one detail I've adopted is to set the majority of the code output of the remote module
         to be in a directory:
       </Typography>
@@ -76,8 +76,8 @@ export default function EnableModFed() {
   publicPath: THIS_FED_MOD.URL,
   chunkFilename: 'nav/[name].mjs',
   uniqueName: 'nav',
-},`}</code>
-      <Typography>
+},`}</code> */}
+      {/* <Typography>
         <b>publicPath</b> is the url that this is expected to be served at. Here, the value is
         sourced from an env var.
       </Typography>
@@ -91,8 +91,73 @@ export default function EnableModFed() {
         examples, like a hash for cache busting).
       </Typography>
       <Typography>
-        <b>uniqueName</b> has been helpful to me for naming remote bundles. Some online examples I've stumbled on don't do this, which will cause naming conflicts when multiple remotes are in play. I've chosen to use a string that represents the remote module.
-      </Typography>
+        <b>uniqueName</b> has been helpful to me for naming remote bundles. Some online examples
+        I've stumbled on don't do this, which will cause naming conflicts when multiple remotes are
+        in play. I've chosen to use a string that represents the remote module.
+      </Typography> */}
+
+      <Section h4="Introduce A Workaround File" sx={{ p: 3 }}>
+        <Typography variant="body1">
+          Most "boilerplate" react/webpack/babel frontend build systems use the{' '}
+          <code>index.js</code> as the entrypoint, and this project will also. The workaround,
+          though, comes from{' '}
+          <a
+            href="https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption"
+            target="none"
+          >
+            An Error That Webpack Will Throw Later On Withouth This
+          </a>{' '}
+          and a documented suggested adjustment. Basically, set the <code>index.js</code> file to{' '}
+          <i>only import another file</i> where the other file will contain the code to trigger
+          React rendering to an element.
+        </Typography>
+        <code style={{ whiteSpace: 'pre' }}>{`
+// index.js looks like...
+import(/* webpackChunkName: "mfeWorkaround" */ './mfeWorkaround');`}</code>
+        <br />
+        <code style={{ whiteSpace: 'pre' }}>{`
+// mfeWorkaround.js looks like...
+import React from 'react';
+import ReactDomClient from 'react-dom/client';
+import App from './app';
+
+const MFE_PARENT_DIV = 'mfe-root';
+const rootElement = document.getElementById(MFE_PARENT_DIV);
+
+if (rootElement) {
+  const root = ReactDomClient.createRoot(rootElement);
+  root.render(<App />);
+}
+`}</code>
+      </Section>
+
+      <Section h4="Some Env Var Housekeeping" sx={{ p: 3 }}>
+        <Typography variant="body1">
+          Here, I set some values in the "start" script <i>(as well as the "build" script)</i> of
+          the package.json. These values get used in the code where needed{' '}
+          <i>(mostly in webpack config)</i>:
+        </Typography>
+        <br />
+        <code
+          style={{ whiteSpace: 'pre' }}
+        >{`"start": "HOST_FED_MOD_HOST=localhost HOST_FED_MOD_PORT=8080 webpack serve --mode=development",`}</code>
+        <br />
+        <br />
+        <Typography variant="body1">
+          Here, I use these env vars in the webpack config file before constructing the config
+          object:
+        </Typography>
+        <br />
+        <code
+          style={{ whiteSpace: 'pre' }}
+        >{`const FED_MOD_HOST = process.env.HOST_FED_MOD_HOST || 'localhost'
+const FED_MOD_PORT = process.env.HOST_FED_MOD_PORT || 8080;
+const THIS_FED_MOD = {
+  NAME: 'host-app',
+  FILENAME: 'remoteEntry.js',
+  URL: \`http://\${FED_MOD_HOST}:\${FED_MOD_PORT}/\`,
+}`}</code>
+      </Section>
 
       <Section h4="Config Impact On Production Bundle" sx={{ p: 4 }}>
         <Typography variant="body1">
