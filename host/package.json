@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "devDependencies": {
+    "babel-plugin-import": "^1.13.5",
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
