@@ -61,7 +61,7 @@ function Nav({ window }) {
             Mod-Fed App
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <NavItems itms={NavItems} />
+            <NavItems itms={navItems} />
           </Box>
         </Toolbar>
       </AppBar>
